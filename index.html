@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>A-Blast</title>
+    <title>WAR SPACE</title>
     <meta name="description" content="A WebVR wave shooter game using A-Frame by Mozilla VR.">
     <meta name="theme-color" content="#3d4d55">
     <!--<script src="vendor/aframe-master.min.js"></script>-->
@@ -15,7 +15,13 @@
     <link rel="manifest" href="manifest.webmanifest">
   </head>
   <body>
-    <a-scene countdown="start: 05:00; value: 00:00" gamestate="health: 5; wave: 0" gamestate-visuals="" decals="maxDecals: 30; src: #bulletDecal; size: 0.3">
+    <a-scene countdown="start: 03:00; value: 00:00" gamestate="health: 30; wave: 0" gamestate-visuals="" decals="maxDecals: 30; src: #bulletDecal; size: 0.5">
+      <a-camera>
+        <a-cursor color="red">
+        </a-cursor>
+
+      </a-camera>
+
       <a-assets>
         <a-asset-image src="assets/images/enemy_emissive0.jpg" crossOrigin="anonymous"> </a-asset-image>
         <a-asset-image src="assets/images/enemy_emissive1.jpg" crossOrigin="anonymous"></a-asset-image>
@@ -79,7 +85,7 @@
       <a-entity id="sky"
         rotation="0 90 0"
         geometry="primitive: sphere; radius: 600; segmentsHeight: 32; segmentsWidth: 32"
-        material="shader: flat; fog: false; side: back; src: url(assets/images/sky.jpg)"
+        material="shader: flat; fog: false; side: back; src: url(assets/images/sky7.jpg)"
       ></a-entity>
 
       <a-entity id="player"
@@ -103,14 +109,14 @@
       <a-entity id="rightHandPivot">
         <a-entity id="rightHand" shoot-controls="hand: right" weapon shoot></a-entity>
       </a-entity>
-
+<!-- 
       <a-entity id="ring0" json-model="src:url(assets/models/ring.json); singleModel:true)" position="0 0 0" rotation="0 0 0" scale="1.3 1.3 1.3">
         <a-animation id="ring0anim" attribute="rotation" to="0 360 180" repeat="indefinite" dur="50000" easing="linear"></a-animation>
       </a-entity>
 
       <a-entity id="ring1" json-model="src:url(assets/models/ring.json); singleModel:true)" position="0 0 0" rotation="90 0 0">
         <a-animation id="ring1anim" attribute="rotation" to="90 360 180" repeat="indefinite" dur="30000" easing="linear"></a-animation>
-      </a-entity>
+      </a-entity> -->
 
       <a-entity id="border" json-model="src:url(assets/models/border.json);" position="0 0 0"></a-entity>
 
@@ -120,12 +126,13 @@
           fnt:assets/fonts/mozillavr.fnt;
           scale:0.002;
           text:HALL OF FAME;
-          color:#f00">
+          color:#f00"
+          visible = "false">
           </a-entity>
 
         <a-entity
           highscores
-          visible = "true"
+          visible = "false"
           position="0 -0.15 0">
         </a-entity>
       </a-entity>
@@ -195,13 +202,5 @@
         </div>
       </div>
     </div>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-80530812-3', 'auto');
-      ga('send', 'pageview');
-    </script>
   </body>
 </html>
